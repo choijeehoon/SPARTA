@@ -41,7 +41,46 @@
         }
         })
     })
+
+
+
+        function caculate(){
+            var target=document.getElementById("orderquan");
+            var quantity=target.options[target.selectedIndex].value;
+            var p1=eval(6000000*quantity);
+            var cal=1;
+            document.getElementById("price").value=p1;
+        }
     
+        function buysuccess(){
+            if($("#ordername").val()==""){
+                alert("구매자 성함을 입력하세요")
+            } else {
+                if($("#orderquan").val()=="Choose..."){
+                    alert("주문 수량을 선택하세요")
+                } else {
+                        if($("#orderaddr").val()==""){
+                            alert("주문자 주소를 입력하세요")
+                        } else {
+                            if($("#orderphone").val()==""){
+                                alert("주문자 전화번호를 입력하세요")
+                                } else {
+                                     if($("#price").val()!=="NaN"){
+                                        alert("주문이 완료되었습니다")
+                                        } else {
+                                            alert("가격계산 버튼을 클릭해주세요")
+                    }
+
+                    }
+
+                    }
+                }
+            
+            }}
+            
+            
+
+
     </script>
     
 
@@ -104,18 +143,12 @@
         
     </style>
     <script>
-        function buysuccess(){
-            alert("주문이 완료되었습니다")}
+        
 
-        function caculate(){
-            var target=document.getElementById("inputGroupSelect01");
-            var quantity=target.options[target.selectedIndex].value;
-            var p1=eval(6000000*quantity);
-            document.getElementById("price").value=p1;
-        }
 
         
     </script>
+    
 </head>
 
 <body>
@@ -167,14 +200,14 @@
             <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default">주문자성함</span>
             </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input type="text" id="ordername" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01">주문수량</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" id="orderquan">
                 <option selected>Choose...</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -187,13 +220,13 @@
             <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
             </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input type="text" id="orderaddr" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
             </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+            <input type="text" id="orderphone" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
         </div>
         
     <div>
