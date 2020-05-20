@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(function(){ 
+        
+        $.ajax({
+        type: "GET", // GET 방식으로 요청한다.
+        url: "https://api.manana.kr/exchange/rate.json",
+        data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
+        success: function(response){ // 서버에서 준 결과를 response라는 변수에 담음
+        console.log(response); // 서버에서 준 결과를 이용해서 나머지 코드를 작성
+        let rows = response[1];
+        console.log(rows);
+        let todayrate = rows["rate"];
+        console.log(todayrate);
+        $("#todaycurrency").text("오늘의환율" + " : " + todayrate + " "+  "원/$");
+        
+        
+        }
+        })
+    })
+    
+    </script>
+    
+
+    <title>상품주문하기</title>
+    <style>
+        .container{
+            width : 800px;
+            
+        }
+        
+        .item_detail
+            {margin : 40px;
+            padding : 40px;
+        }
+
+        .item_name{
+            float: left;
+            width : 100%;
+            height : 100px;
+            
+            font-size : 25px;
+            font-weight : bold;
+        }
+        .item_price{
+            font-size : 25px;
+            
+        }
+
+        .item_description{
+            
+           font-size : 20px;
+        }
+        .order{
+            padding : 40px;
+            margin : 40px;
+        }
+                    
+        .input-group mb-3{
+            padding : 20px;
+            margin : 20px;
+        }
+        .currency {
+            padding : 20px;
+            margin : 20px;
+        }
+        .btn {
+            
+            margin : 20px;
+            
+        }
+        .benjamin {
+            text-align: center;
+        }
+        .currency {
+            text-align : center;
+            color : blue;
+            font-weight: bold;
+        }
+
+        
+    </style>
+    <script>
+        function buysuccess(){
+            alert("주문이 완료되었습니다")}
+
+        function caculate(){
+            var target=document.getElementById("inputGroupSelect01");
+            var quantity=target.options[target.selectedIndex].value;
+            var p1=eval(6000000*quantity);
+            document.getElementById("price").value=p1;
+        }
+
+        
+    </script>
+</head>
+
+<body>
+    <div class="container">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="https://shop.r10s.jp/auc-soleaddict/cabinet/06776154/imgrc0077522011.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="https://ccimg.hellomarket.com/images/2018/item/10/30/15/5114_3181880_1.jpg?size=s6" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="http://cdn.eyesmag.com/wp-content/uploads/2017/08/02162128/off-white-air-jordan-1-release-date.jpg" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    
+   
+    <div class = "item_detail">
+        <div class = "item_name">
+            <P>Off-White Jordan 1, Chicago &nbsp;&nbsp; <span class = "item_price">6,000,000 원/개</span></P>
+        
+        </div>
+        <div class = "item_description">
+            <p>This Air Jordan 1 uses a constructed build that pretty much mixes both the Air Jordan 1 High Ultra and Deconstructed tooling. The high-top sneaker comes dressed in familiar Red, White and Black Chicago Bulls-inspired color scheme.</p>
+        </div>
+    </div>
+    <div class = currency id=todaycurrency></div>
+    <div class = "order">
+        <h1>주문하기</h1>
+        <p>&nbsp;</p>
+        
+    
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">주문자성함</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">주문수량</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+        </div>
+        
+    <div>
+        <div class="input-group mb-3">
+        <input class="form-control" type="text" id="price" readonly> 
+    </div>
+    <div class = benjamin>
+        <button type="button" class="btn btn-success" onclick="javascript:caculate()">가격계산</button>
+
+        <button type="button" class="btn btn-success" onclick="javascript:buysuccess()">구매하기</button>
+    </div>
+    </div>
+</div>
+</div>
+</body>
+
+
+</html>
